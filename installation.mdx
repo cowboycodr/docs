@@ -1,0 +1,90 @@
+---
+title: 'Installation'
+icon: 'download'
+description: 'A guide on how to install and run KianKit'
+---
+
+## Introduction
+
+KianKit is setup like a regular SvelteKit app with some added folders, and modified routing.
+
+### Structure
+
+```bash
+src/
+├── lib/ # Library files containing reusable components, layouts, schemas, server-side utilities, and helper functions.
+│   ├── components/ # Components used across the application.
+│   ├── layouts/ # Layouts that define the structure for different pages or sections.
+│   ├── schemas/ # Schemas for data validation and structure.
+│   ├── server/ # Server-side code and utilities.
+│   └── utils.js # General utility functions used across the project.
+├── routes/ # Route definitions and corresponding page components for the application.
+│   ├── (app)/ # Application-specific routes, likely for the main user experience.
+│   ├── (auth)/ # Authentication-related routes, such as login and signup.
+│   ├── (marketing)/ # Marketing pages, possibly for landing pages or promotional content.
+│   └── sitemap.xml/ # Sitemap directory, likely for generating a sitemap.xml for SEO.
+static/ # Static files like images, fonts, or other assets that don’t change frequently.
+```
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- You have [pNPM](https://pnpm.io) installed on your machine.
+- Create a [Supabase](https://supabase.com/dashboard) project.
+
+You should be good to go!
+
+## Installation
+
+<AccordionGroup>
+  <Accordion title="Clone the repository" icon="github">
+    There are two ways to get KianKit onto your machine, it all comes down to your choice.
+
+    1. You can [fork](https://github.com/cowboycodr/kiankit/fork) KianKit and then clone down your own version of it.
+    ```bash
+    # After forking the repository
+    git clone --depth 1 https://github.com/<username>/kiankit <your-project-name>
+    ```
+
+    2. You can clone the repository directly.
+    ```bash
+    # Clone the repository
+    git clone --depth 1 https://github.com/cowboycodr/kiankit <your-project-name>
+    ```
+  </Accordion>
+  <Accordion title="Install dependencies" icon="cube">
+    The next step is to install all of the required dependencies for KianKit, we use `pnpm` as the package manager.
+
+    ```bash
+    # Navigate to the project directory
+    cd <your-project-name>
+
+    # Install dependencies
+    pnpm install
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Setup
+
+You will need to rename the `.env.example` to `.env` and fill in the environment variables with your [Supabase project's](https://supabase.com/dashboard/projects) variables.
+
+#### Email configuration
+
+To ensure email & password auth works properly it is recommened to set up a proper SMTP server with Supabase. You can learn more about that [here](https://supabase.com/docs/guides/auth/auth-smtp). I recommend using [Resend](https://resend.com/) for this. 
+
+#### OAuth
+
+You must follow the following guides to get OAuth up and running:
+
+- [Log in with Google](https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=platform&platform=web)
+- [Log in with Github](https://supabase.com/docs/guides/auth/social-login/auth-github)
+
+## Running the project
+
+Now that your project is set up, you can run the project!
+
+```bash
+pnpm run dev
+```
